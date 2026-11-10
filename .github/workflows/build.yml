@@ -28,9 +28,11 @@ jobs:
       - name: Unzip project
         run: |
           set -euo pipefail
-          test -f PodPop_v4_Premium_BuildReady.zip
+          # Use whichever .zip is in the repo, even if its name has "(1)" or a different version.
+          ZIP="$(ls -t ./*.zip | head -n 1)"
+          echo "Using project zip: $ZIP"
           mkdir project
-          unzip -q PodPop_v4_Premium_BuildReady.zip -d project
+          unzip -q "$ZIP" -d project
           test -f project/settings.gradle.kts
 
       - name: Use pro2.png from the repo (if present)
