@@ -1,4 +1,4 @@
-name: Build PodPop APK
+name: Build Claudii APK
 
 on:
   push:
@@ -51,7 +51,7 @@ jobs:
       - name: Save APK as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PodPop-APK
+          name: Claudii
           path: project/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
 
